@@ -72,7 +72,6 @@ Widget.prototype.init = function () {
   messageContainer.appendChild(form);
 
   container.appendChild(messageContainer);
-
   this.styleJs();
 };
 
