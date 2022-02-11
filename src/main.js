@@ -43,6 +43,36 @@ Widget.prototype.init = function () {
 
   container.appendChild(buttonContainer);
 
+  const messageContainer = document.createElement('div');
+  messageContainer.classList.add('hidden', 'message-container');
+  this.messageContainer = messageContainer;
+
+  const title = document.createElement('h2');
+  title.textContent = `We're not here, drop us an email...`;
+
+  const form = document.createElement('form');
+  form.classList.add('message-container');
+
+  const inputText = document.createElement('input');
+  inputText.type = 'email';
+  inputText.required = 'true';
+
+  const inputArea = document.createElement('input');
+  inputArea.type = 'text';
+  inputArea.required = 'true';
+
+  const submitButton = document.createElement('btton');
+  submitButton.textContent = 'Submit';
+
+  form.appendChild(inputText);
+  form.appendChild(inputArea);
+  form.appendChild(submitButton);
+
+  messageContainer.appendChild(title);
+  messageContainer.appendChild(form);
+
+  container.appendChild(messageContainer);
+
   this.styleJs();
 };
 
@@ -53,9 +83,11 @@ Widget.prototype.toogleIconButton = function () {
   if (this.open) {
     this.closeIcon.classList.remove('hidden');
     this.chatIcon.classList.add('hidden');
+    this.messageContainer.classList.remove('hidden');
   } else {
     this.closeIcon.classList.add('hidden');
     this.chatIcon.classList.remove('hidden');
+    this.messageContainer.classList.add('hidden');
   }
 };
 
